@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>BuyMitra - Best Deals & Products</title>
+    <title>BuyMitra - Compare Prices & Find Best Deals</title>
 
     <style>
         * {
@@ -15,44 +15,45 @@
         }
 
         body {
-            background: #f5f6f8;
-            color: #222;
+            background: #f4f6f8;
+            color: #1f2937;
         }
 
+        /* HEADER */
         header {
             background: #111827;
             color: white;
-            padding: 18px 6%;
+            padding: 15px 6%;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 20px;
+            gap: 30px;
         }
 
         .logo {
-            font-size: 28px;
+            font-size: 29px;
             font-weight: bold;
             color: #ffb703;
+            white-space: nowrap;
         }
 
-        .search {
+        .search-box {
             flex: 1;
-            max-width: 500px;
         }
 
-        .search input {
+        .search-box input {
             width: 100%;
-            padding: 12px 16px;
-            border: none;
+            padding: 13px 18px;
             border-radius: 8px;
-            font-size: 15px;
+            border: none;
             outline: none;
+            font-size: 15px;
         }
 
+        /* HERO */
         .hero {
-            padding: 50px 6%;
             background: linear-gradient(135deg, #2563eb, #7c3aed);
             color: white;
+            padding: 55px 6%;
         }
 
         .hero h1 {
@@ -65,6 +66,7 @@
             opacity: 0.9;
         }
 
+        /* CONTAINER */
         .container {
             width: 88%;
             max-width: 1200px;
@@ -73,92 +75,168 @@
 
         .section-title {
             font-size: 25px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
+        /* CATEGORIES */
         .categories {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 45px;
         }
 
         .category {
             background: white;
-            padding: 12px 20px;
-            border-radius: 25px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
             cursor: pointer;
-            border: 1px solid #ddd;
+            transition: 0.2s;
         }
 
+        .category:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        .category-icon {
+            font-size: 35px;
+            margin-bottom: 8px;
+        }
+
+        .category-name {
+            font-weight: bold;
+        }
+
+        /* PRODUCTS */
         .products {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
             gap: 20px;
         }
 
         .product {
             background: white;
-            border-radius: 12px;
+            border-radius: 13px;
             padding: 18px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            border: 1px solid #e5e7eb;
             transition: 0.2s;
         }
 
         .product:hover {
-            transform: translateY(-4px);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
         }
 
         .product-image {
             height: 180px;
-            background: #eef0f3;
-            border-radius: 8px;
+            background: #f1f3f5;
+            border-radius: 10px;
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 60px;
+            align-items: center;
+            font-size: 65px;
             margin-bottom: 15px;
         }
 
         .product h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .rating {
+            color: #f59e0b;
             margin-bottom: 10px;
         }
 
-        .price {
-            font-size: 22px;
-            font-weight: bold;
-            color: #16a34a;
-            margin-bottom: 15px;
+        .old-price {
+            color: #777;
+            text-decoration: line-through;
+            font-size: 14px;
         }
 
-        .buy-btn {
-            display: block;
-            width: 100%;
-            padding: 11px;
-            background: #ff9900;
-            color: white;
+        .price {
+            color: #16a34a;
+            font-size: 23px;
+            font-weight: bold;
+            margin: 4px 0 5px;
+        }
+
+        .discount {
+            color: #16a34a;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 14px;
+        }
+
+        .store-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .store-button {
+            flex: 1;
+            padding: 10px 5px;
+            border-radius: 7px;
             text-align: center;
             text-decoration: none;
-            border-radius: 7px;
+            color: white;
+            font-size: 13px;
             font-weight: bold;
         }
 
-        footer {
-            margin-top: 50px;
-            padding: 25px;
-            text-align: center;
-            background: #111827;
-            color: white;
+        .amazon {
+            background: #ff9900;
         }
 
+        .flipkart {
+            background: #2874f0;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 55px;
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        footer p {
+            margin: 6px 0;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        /* MOBILE */
         @media (max-width: 700px) {
+
             header {
                 flex-direction: column;
                 align-items: stretch;
+                gap: 12px;
+            }
+
+            .logo {
+                text-align: center;
+            }
+
+            .hero {
+                padding: 40px 6%;
             }
 
             .hero h1 {
-                font-size: 32px;
+                font-size: 31px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .container {
+                width: 92%;
             }
         }
     </style>
@@ -166,70 +244,339 @@
 
 <body>
 
-<header>
-    <div class="logo">BuyMitra</div>
+    <!-- HEADER -->
 
-    <div class="search">
-        <input type="text" placeholder="Search products...">
+    <header>
+
+        <div class="logo">
+            BuyMitra
+        </div>
+
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+                onkeyup="searchProducts()"
+            >
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <h1>
+            Find Better Deals 🔥
+        </h1>
+
+        <p>
+            Compare products and discover great deals with BuyMitra.
+        </p>
+
+    </section>
+
+
+    <!-- MAIN -->
+
+    <div class="container">
+
+
+        <!-- CATEGORIES -->
+
+        <h2 class="section-title">
+            Shop by Category
+        </h2>
+
+        <div class="categories">
+
+            <div class="category">
+                <div class="category-icon">📱</div>
+                <div class="category-name">Mobiles</div>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">💻</div>
+                <div class="category-name">Laptops</div>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">🎧</div>
+                <div class="category-name">Electronics</div>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">⌚</div>
+                <div class="category-name">Smart Watches</div>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">👕</div>
+                <div class="category-name">Fashion</div>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">🏠</div>
+                <div class="category-name">Home</div>
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCTS -->
+
+        <h2 class="section-title">
+            🔥 Popular Deals
+        </h2>
+
+
+        <div class="products" id="productList">
+
+
+            <!-- PRODUCT 1 -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    📱
+                </div>
+
+                <h3>
+                    Smartphone
+                </h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <div class="old-price">
+                    ₹24,999
+                </div>
+
+                <div class="price">
+                    ₹19,999
+                </div>
+
+                <div class="discount">
+                    20% OFF
+                </div>
+
+                <div class="store-buttons">
+
+                    <a href="#"
+                       class="store-button amazon">
+                        Amazon
+                    </a>
+
+                    <a href="#"
+                       class="store-button flipkart">
+                        Flipkart
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    💻
+                </div>
+
+                <h3>
+                    Laptop
+                </h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐☆
+                </div>
+
+                <div class="old-price">
+                    ₹59,999
+                </div>
+
+                <div class="price">
+                    ₹49,999
+                </div>
+
+                <div class="discount">
+                    17% OFF
+                </div>
+
+                <div class="store-buttons">
+
+                    <a href="#"
+                       class="store-button amazon">
+                        Amazon
+                    </a>
+
+                    <a href="#"
+                       class="store-button flipkart">
+                        Flipkart
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    🎧
+                </div>
+
+                <h3>
+                    Wireless Headphones
+                </h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <div class="old-price">
+                    ₹2,999
+                </div>
+
+                <div class="price">
+                    ₹1,999
+                </div>
+
+                <div class="discount">
+                    33% OFF
+                </div>
+
+                <div class="store-buttons">
+
+                    <a href="#"
+                       class="store-button amazon">
+                        Amazon
+                    </a>
+
+                    <a href="#"
+                       class="store-button flipkart">
+                        Flipkart
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+
+            <div class="product">
+
+                <div class="product-image">
+                    ⌚
+                </div>
+
+                <h3>
+                    Smart Watch
+                </h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐☆
+                </div>
+
+                <div class="old-price">
+                    ₹3,499
+                </div>
+
+                <div class="price">
+                    ₹2,499
+                </div>
+
+                <div class="discount">
+                    29% OFF
+                </div>
+
+                <div class="store-buttons">
+
+                    <a href="#"
+                       class="store-button amazon">
+                        Amazon
+                    </a>
+
+                    <a href="#"
+                       class="store-button flipkart">
+                        Flipkart
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
-</header>
 
-<section class="hero">
-    <h1>Find Better Deals 🔥</h1>
-    <p>Compare products and discover great deals with BuyMitra.</p>
-</section>
 
-<div class="container">
+    <!-- FOOTER -->
 
-    <h2 class="section-title">Categories</h2>
+    <footer>
 
-    <div class="categories">
-        <div class="category">📱 Mobiles</div>
-        <div class="category">💻 Laptops</div>
-        <div class="category">🎧 Electronics</div>
-        <div class="category">👕 Fashion</div>
-        <div class="category">🏠 Home</div>
-    </div>
+        <h3>
+            BuyMitra
+        </h3>
 
-    <h2 class="section-title">🔥 Popular Products</h2>
+        <p>
+            Compare products. Find better deals.
+        </p>
 
-    <div class="products">
+        <p>
+            © 2026 BuyMitra. All rights reserved.
+        </p>
 
-        <div class="product">
-            <div class="product-image">📱</div>
-            <h3>Smartphone</h3>
-            <div class="price">₹19,999</div>
-            <a href="#" class="buy-btn">View Deal</a>
-        </div>
+    </footer>
 
-        <div class="product">
-            <div class="product-image">💻</div>
-            <h3>Laptop</h3>
-            <div class="price">₹49,999</div>
-            <a href="#" class="buy-btn">View Deal</a>
-        </div>
 
-        <div class="product">
-            <div class="product-image">🎧</div>
-            <h3>Wireless Headphones</h3>
-            <div class="price">₹1,999</div>
-            <a href="#" class="buy-btn">View Deal</a>
-        </div>
+    <!-- SEARCH SCRIPT -->
 
-        <div class="product">
-            <div class="product-image">⌚</div>
-            <h3>Smart Watch</h3>
-            <div class="price">₹2,499</div>
-            <a href="#" class="buy-btn">View Deal</a>
-        </div>
+    <script>
 
-    </div>
+        function searchProducts() {
 
-</div>
+            const input =
+                document
+                .getElementById("searchInput")
+                .value
+                .toLowerCase();
 
-<footer>
-    © 2026 BuyMitra — Find Better Deals
-</footer>
+            const products =
+                document
+                .querySelectorAll(".product");
+
+            products.forEach(function(product) {
+
+                const name =
+                    product
+                    .querySelector("h3")
+                    .innerText
+                    .toLowerCase();
+
+                if (name.includes(input)) {
+
+                    product.style.display = "block";
+
+                } else {
+
+                    product.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+    </script>
 
 </body>
 </html>
